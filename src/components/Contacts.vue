@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="list">
       Contact
     </div>
   </template>
@@ -12,5 +12,8 @@
   
   
   <style scoped>
-  
+  .list {
+        background-color: rgb(238, 233, 233);
+        height: 100vh;
+    }
   </style>

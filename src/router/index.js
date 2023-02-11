@@ -7,7 +7,7 @@ import Contacts from '../components/Contacts.vue'
 export default new VueRouter({
     routes: [
         {
-            path: '/maneMenu',
+            path: '/',
             name: 'ManeMenu',
             component: ManeLoyaut
         },

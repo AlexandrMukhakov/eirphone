@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div class="head">
     <div class="d-flex justify-content-beetwen pt-2 pl-4 pr-4">
-      <ManeMenu class="col-3"></ManeMenu>
-      <router-view class="col-9"></router-view>
+      <ManeMenu class="col-3 mt-5"></ManeMenu>
+      <router-view class="col-8"></router-view>
     </div>
   </div>
 </template>

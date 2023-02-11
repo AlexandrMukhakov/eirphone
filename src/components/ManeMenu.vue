@@ -69,18 +69,20 @@ export default {
   }
 
   .listLi {
-    margin-bottom: 40px;
+    margin-bottom: 70px;
   }
   .link {
+    color: black;
+    font-family: 'Lato', sans-serif;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 38px;
+    line-height: 20px;
     text-decoration: none;
-    font-style: italic;
-    font-weight: 700;
-    font-size: 40px;
-    color:aqua;
   }
 
   .activeClass {
-    background-color: aqua;
+    background-color: rgb(207, 203, 203);
     color:white;
     border-radius: 10px;
     padding: 5px 10px;
