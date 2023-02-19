@@ -1,7 +1,8 @@
 <template>
-<div class="head">
-    <div class='container'>
-            <div class="title col-3">
+<div class="col-md-12 col-lg-9" >
+    <div class="backImage">
+        <div class='container'>
+            <div class="title col-lg-6 col-3">
                 <h1>Earphone</h1>
             </div>
 
@@ -12,34 +13,84 @@
             </div>
 
             <div class="butt d-flex justify-content-start">
-                <button class="button">
+                <button @click="openModal()" class="button">
                     <p class="buttonText">Связаться с нами</p>
                 </button>
             </div>
         </div>
     </div>
+    <ModalWindow
+    @closeModal = "closeModal"
+    @modal2 = 'modal2'
+    v-if="modal"
+     ></ModalWindow>
+     <ThanksModal v-if="thanks"></ThanksModal>
+</div>
 </template>
 
 <script>
 
+import ModalWindow from './Modal/ModalWindow.vue';
+import ThanksModal from './Modal/ThanksModal.vue'
 
 export default {
     name: 'ManeLoyaut',
+
+    components: {
+        ModalWindow,
+        ThanksModal
+    },
+
+    data() {
+        return {
+            modal: false,
+            thanks: false
+        }
+    },
+
+    watch: {
+        thanks: 'closeModal2'
+    },
+
+    methods: {
+        openModal() {
+            this.modal = true
+        },
+
+        closeModal() {
+            this.modal = false
+        },
+
+        modal2() {
+            this.thanks = true
+        },
+
+        closeModal2() {
+           if (this.thanks) {
+            setTimeout(() => {
+                this.thanks = false
+            }, 2000)
+           }
+        }
+
+        
+    } 
 
 }
 </script>
 
 <style>
 .container {
-    padding: 30px 100px 100px 10px;
+    padding: 30px 0px 100px 10px;
 }
 
 
-.head {
-    background:url('../assets/girlPro.jpg');
+.backImage {
+    background: url('../assets/girlPro.jpg') top right 40%;
     background-size: cover;
     height: 100vh;
 }
+
 
 .button {
     padding: 10px 30px;

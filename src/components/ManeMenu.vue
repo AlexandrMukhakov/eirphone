@@ -1,5 +1,6 @@
 <template>
   <div>
+  <div>
     <ul 
     v-for="link in links" :key="link.id"
     class="listUl">
@@ -14,11 +15,15 @@
       </li>
     </ul>
   </div>
+</div>
 </template>
 
 <script>
+
+
 export default {
   name: 'ManeMenu',
+
 
   data() {
     return {
@@ -63,20 +68,27 @@ export default {
 </script>
 
 
-<style scoped>
+<style>
+
+
+.menu {
+  background-color: rgb(238, 238, 238);
+  height:100vh;
+}
+
   .listUl {
     list-style-type: none;
   }
 
   .listLi {
-    margin-bottom: 70px;
+    margin-bottom: 40px;
   }
   .link {
     color: black;
     font-family: 'Lato', sans-serif;
     font-style: normal;
     font-weight: 900;
-    font-size: 38px;
+    font-size: 23px;
     line-height: 20px;
     text-decoration: none;
   }
