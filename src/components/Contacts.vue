@@ -5,18 +5,16 @@
   </template>
   
   <script>
+
   export default {
     name: 'ManeMenu',
 
 
-
     methods: {
       prom () {
-        alert("dad");
+        alert("dude");
       }
     }
-
-
 
   }
   </script>

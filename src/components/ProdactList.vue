@@ -2,12 +2,13 @@
     <div class="list">
         <div class="title mb-4">Вся наша продукция</div>
         <div class="col-lg-12 col-sm-4 list1">
-                <div class="goods-card" v-for="(i, index) in prod" :key="index">
+                <div class="goods-card" v-for="i in prod" :key="i.id">
                     <span class="label">New</span>
-                    <!-- /.label --><img width="150px" src="../assets/orig.jpg" alt="goods-1" class="goods-image">
+                    <!-- /.label --><img width="150px" :src="i.img" alt="goods-1" class="goods-image">
                     <h3 class="goods-title">{{ i.title }}</h3>
                     <!-- /.goods-title -->
                     <span class="goods-price">{{ i.price }}р. </span>
+
                     <router-link
                     class="cards-links"
                     :to="{name: 'Info', params: {id: i.id} }"
