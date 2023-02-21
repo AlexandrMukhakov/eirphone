@@ -1,6 +1,6 @@
 <template>
     <div>
-      <Header class="col-lg-12 header" ></Header>
+      <Header class="col-12 header" ></Header>
       <div class="basic col-12">
         <ManeMenu class="menu col-3"></ManeMenu>
         <router-view></router-view>

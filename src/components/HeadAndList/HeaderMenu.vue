@@ -5,7 +5,7 @@
                 <img @click="openMenu()" class="menuList" src="../../assets/menuList.png" />
                 <p class="text logo" @click="linktomane()"> Earphone</p>
             </div>
-            <div class="text">F.A.Q</div>
+            <div class="text place">F.A.Q</div>
         </div>
         <div class="line"></div>
         <MenuList @closeMenu="closeMenu" v-if="menu"></MenuList>
@@ -53,6 +53,13 @@ export default {
 .list {
     background-color: rgb(238, 238, 238);
 }
+
+.menuList2 {
+    display:flex;
+    justify-content: flex-start;
+}
+
+
 
 .menuList {
     display: none;

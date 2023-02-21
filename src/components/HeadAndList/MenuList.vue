@@ -77,12 +77,12 @@
     top: 50px;
     width: 100%;
     height: 100%;
-    background: rgba(196, 195, 195, 0.7);
+    /* background: rgba(196, 195, 195, 0.7); */
     z-index: 5;
   }
   
   .listMenu .content {
-    animation: dropdown 0.5s;
+    animation: dropdown 0.1s;
     display: block;
     width: 200px;
     min-height: 200px;
@@ -128,10 +128,10 @@
   }
   
   @media(max-width:550px) {
-    .mymodal .content {
-      width: 90%;
-      margin-top: 5px;
-      height: 90%;
+    .listMenu .content {
+      width: 30%;
+      margin-top: 24px;
+      height: 30%;
     }
   }
 
