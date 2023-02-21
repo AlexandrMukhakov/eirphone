@@ -127,9 +127,9 @@
     }
   }
   
-  @media(max-width:550px) {
+  @media(max-width:769px) {
     .listMenu .content {
-      width: 30%;
+      width: 40%;
       margin-top: 24px;
       height: 30%;
     }
