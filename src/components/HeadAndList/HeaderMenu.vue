@@ -2,7 +2,7 @@
     <div class="list">
         <div class="d-flex justify-content-between align-items-center">
             <div class="menuList2">
-                <img @click="openMenu()" class="menuList" src="../../assets/menuList.png" />
+                <img :src="!menu ? '../../assets/menuList.png' : '../../assets/clea.png'" @click="openMenu()" class="menuList"  />
                 <p class="text logo" @click="linktomane()"> Earphone</p>
             </div>
             <div class="text place">F.A.Q</div>
