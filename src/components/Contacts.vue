@@ -1,5 +1,5 @@
 <template>
-    <div class="list col-lg-9 col-md-12">
+    <div class="list col-lg-9 col-md-9">
       <div class="text">Вы моежет с нами связаться через электронную почту, заполнив форму <span @click="prom()">"Связаться с нами"</span>, так же, для более быстрой связи написать в телеграм канал</div> <a href="https://t.me/aleksandrmukhakov"><img width="60px" src="https://w7.pngwing.com/pngs/402/10/png-transparent-telegram-logo-scalable-graphics-icon-logo-blue-angle-triangle.png" title="telegram"/></a>
     </div>
   </template>

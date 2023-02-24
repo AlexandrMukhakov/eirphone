@@ -57,12 +57,20 @@ export default {
       this.$emit('closeModal')
     },
 
-    onSubmit: function (e) {
+    onSubmit: async function (e) {
+
 
       if (this.name && this.tel) {
         this.closeModal();
         this.$emit('modal2')
-        console.log([this.name, this.tel])
+
+        let formData = [this.tel, this.tel]
+
+       await fetch('./sendmail.json', {
+      method: 'POST',
+      body: formData
+     });
+
       }
 
       if (this.name) {
@@ -82,7 +90,8 @@ export default {
       }
 
       e.preventDefault();
-     
+
+
     },
 
   },

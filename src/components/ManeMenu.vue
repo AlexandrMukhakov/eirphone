@@ -93,9 +93,10 @@ export default {
     text-decoration: none;
   }
 
+
   .activeClass {
-    background-color: rgb(207, 203, 203);
-    color:white;
+    background-color: rgb(238, 238, 238);
+    border: black 1px solid;
     border-radius: 10px;
     padding: 5px 10px;
   }

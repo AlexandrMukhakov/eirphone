@@ -1,5 +1,5 @@
 <template>
-<div class="col-md-12 col-lg-9" >
+<div class="col-md-9 col-lg-9" >
     <div class="backImage">
         <div class='container'>
             <div class="title col-lg-6 col-3">
@@ -81,7 +81,7 @@ export default {
 
 <style scoped>
 .container {
-    padding: 30px 0px 100px 10px;
+    padding: 30px 0px 100px 0px;
 }
 
 

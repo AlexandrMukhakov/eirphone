@@ -1,6 +1,6 @@
 <template>
     <div class="list">
-        <div class="container d-flex justify-content-between align-items-center">
+        <div class="d-flex justify-content-between align-items-center">
             <div class="menuList2">
                 <img @click="openMenu()" class="menuList" src="../../assets/menuList.png" />
                 <p class="text logo" @click="linktomane()"> Earphone</p>
@@ -65,9 +65,7 @@ export default {
     display: none;
 }
 
-.container {
-    padding: 5px 10px;
-}
+
 
 .text {
     text-decoration: none;

@@ -2,7 +2,7 @@
 
     <div class="list">
         <div class="line"></div>
-    <div class="container d-flex justify-content-center align-items-center">
+    <div class=" d-flex justify-content-center align-items-center">
         <p class="text"> Здесь может быть ваша реклама</p>
     </div>
 </div>
@@ -32,10 +32,6 @@
   <style scoped>
   .list {
         background-color: rgb(238, 238, 238);
-    }
-
-    .container {
-        padding:5px 10px;
     }
 
     .text {
