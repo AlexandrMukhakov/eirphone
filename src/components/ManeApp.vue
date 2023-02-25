@@ -33,6 +33,11 @@
   
   <style scoped>
 
+.menu + router-view {
+  width: 100%;
+}
+
+
 .basic {
     display:flex;
     justify-content: space-between;

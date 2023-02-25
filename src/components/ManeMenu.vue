@@ -73,7 +73,6 @@ export default {
 
 .menu {
   background-color: rgb(238, 238, 238);
-  height:100vh;
 }
 
   .listUl {

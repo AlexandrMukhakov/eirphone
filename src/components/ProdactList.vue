@@ -1,12 +1,12 @@
 <template>
     <div class="list">
         <div class="title mb-4">Вся наша продукция</div>
-        <div class="col-lg-12 col-sm-4 list1">
+        <div class="col-lg-12 col-sm-6 list1">
                 <div class="goods-card" v-for="i in prod" :key="i.id">
                     <span class="label">New</span>
-                    <!-- /.label --><img width="150px" :src="i.img" alt="goods-1" class="goods-image">
+                    <img width="150px" :src="i.img" alt="goods-1" class="goods-image">
                     <h3 class="goods-title">{{ i.title }}</h3>
-                    <!-- /.goods-title -->
+                   
                     <span class="goods-price">{{ i.price }}р. </span>
 
                     <router-link
@@ -15,9 +15,9 @@
                     >
                         <div class="about">Подробнее</div>
                     </router-link>
-                    <!-- /.goods-price -->
+                    
                 </div>
-                <!-- /.goods-card -->
+               
             </div>
     </div>
   </template>
@@ -128,7 +128,10 @@ import products from '../mocks/earphoneInfo'
         padding: 0;
         display:flex;
         justify-content: center;
-
+    }
+    .goods-card {
+        margin-bottom:30px;
+        padding: 0;
     }
 }
 
@@ -143,9 +146,8 @@ import products from '../mocks/earphoneInfo'
 @media(max-width:550px) {
     .list1 {
         margin:0 auto;
-        padding: 0;
-        display:flex;
-        justify-content: center;
+        /* display:flex;
+        justify-content: center; */
 
     }
 }
