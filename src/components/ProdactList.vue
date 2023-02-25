@@ -110,15 +110,16 @@ import products from '../mocks/earphoneInfo'
     opacity: 0;
     background-color: rgba(0, 0, 0, 0.6);
     z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
 }
 
 .cards-links:hover {
     opacity: 1;
 }
 .about {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     font-size: 20px;
     font-weight: 400;
 }

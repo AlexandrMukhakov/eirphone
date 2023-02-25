@@ -43,6 +43,7 @@ export default {
 .card {
   background-color: rgb(238, 238, 238);
   display: flex;
+  padding: 30px 0 50px;
 
 }
 
