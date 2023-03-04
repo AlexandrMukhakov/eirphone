@@ -1,28 +1,34 @@
 <template>
-    <div class="list col-lg-12 col-sm-6">
+    <div class="list col-lg-9 col-sm-6">
         <div class="title mb-4 mt-4">Товары в вашей корзине</div>
         <div class="goods-card" v-for="i in data" :key="i.id">
-                    <img width="150px" :src="i.img" alt="goods-1" class="goods-image">
-                    <div>
-                        <h3 class="goods-title">{{ i.name }}</h3>
-                        <span class="goods-price">{{ i.price }}р. </span>
-                        <button class="delBus">удалить</button>
-                    </div>
+            <img width="150px" :src="i.img" alt="goods-1" class="goods-image">
+            <div>
+                <h3 class="goods-title">{{ i.name }}</h3>
+                <span class="goods-price">{{ i.price }}р. </span>
+                <div class="count">
+                    <button @click="minus()">-</button>
+                    <p>кол. {{ count }}</p>
+                    <button @click="plus()">+</button>
                 </div>
+                <button @click="delGoods(i)" class="delBus">удалить</button>
+            </div>
         </div>
-  </template>
+    </div>
+</template>
   
 
-  <script>
+<script>
 
 
 
-  export default {
+export default {
     name: 'ProductList',
 
     data() {
         return {
-            data: null
+            data: null,
+            count: 1
         }
     },
 
@@ -31,35 +37,49 @@
     },
 
     methods: {
-        delGoods() {
-            
+        minus() {
+            this.count <= 1 ? null : this.count--
+        },
+        plus() {
+            this.count++
+        },
+
+        delGoods(card) {
+            let data2 = JSON.parse(localStorage.getItem('product'));
+            data2 = data2.filter(t => t != card)
+            localStorage.setItem('product', JSON.parse(data2))
+            this.data = data2
         }
     }
 
-  }
-  </script>
+}
+</script>
   
   
-  <style scoped>
-
-  .delBus {
+<style scoped>
+.delBus {
     position: absolute;
     bottom: 5px;
     right: 5px;
-    cursor:pointer;
+    cursor: pointer;
     padding: 2px 15px 2px 15px;
-  }
-    .list {
-        background-color: rgb(238, 238, 238);
-        height: auto;
-    }
+}
 
-    .list1 {
-        display: flex;
-        flex-wrap: wrap;
-    }
+.list {
+    background-color: rgb(238, 238, 238);
+    height: auto;
+}
 
+.list1 {
+    display: flex;
+    flex-wrap: wrap;
+}
 
+.count {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .title {
     font-family: 'Lato', sans-serif;
     font-style: normal;
@@ -70,17 +90,17 @@
 }
 
 .goods-card {
-   position: relative;
-   text-align: center;
-   display:flex;
-   padding: 10px 20px 10px 20px;
+    position: relative;
+    text-align: center;
+    display: flex;
+    padding: 10px 20px 10px 20px;
 
-   width: 276px;
-   box-shadow: 1px 1px 1px 2px rgba(0.2, 0.2, 0.2, 0.2);
-   margin-right: 15px;
-   margin-top: 15px;
-   background-color: rgb(255, 255, 255);
-   z-index: 0;
+    width: 276px;
+    box-shadow: 1px 1px 1px 2px rgba(0.2, 0.2, 0.2, 0.2);
+    margin-right: 15px;
+    margin-top: 15px;
+    background-color: rgb(255, 255, 255);
+    z-index: 0;
 }
 
 .goods-title {
@@ -92,12 +112,14 @@
     color: #262D33;
     font-family: 'Roboto Slab', serif;
 }
+
 .goods-description {
     font-weight: 400;
     font-size: 14px;
     line-height: 20px;
     color: #4B5157;
 }
+
 .goods-price {
     font-size: 18px;
     line-height: 30px;
@@ -111,11 +133,12 @@
     font-size: 20px;
     font-weight: 400;
 }
+
 @media(max-width:990px) {
     .list1 {
-        margin:0 auto;
+        margin: 0 auto;
         padding: 0;
-        display:flex;
+        display: flex;
         justify-content: center;
 
     }
@@ -126,17 +149,16 @@
         display: flex;
         justify-content: center;
     }
-  }
+}
 
 
 @media(max-width:550px) {
     .list1 {
-        margin:0 auto;
+        margin: 0 auto;
         padding: 0;
-        display:flex;
+        display: flex;
         justify-content: center;
 
     }
 }
-
-  </style>
+</style>

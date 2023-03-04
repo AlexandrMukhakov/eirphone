@@ -54,9 +54,13 @@ export default {
         'id': this.cards.id
       }
 
-      arr.push(addRow)
+      if(arr.some(t => t.id === addRow.id)) {
+        alert('Данный товар уже есть в корзине');
+      } else {
+        arr.push(addRow)
+        localStorage.setItem('product', JSON.stringify(arr))
+      }
 
-      localStorage.setItem('product', JSON.stringify(arr))
     }
   }
 
