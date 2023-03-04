@@ -2,10 +2,18 @@
     <div class="list">
         <div class="d-flex justify-content-between align-items-center">
             <div class="menuList2">
-                <img :src="!menu ? '../../assets/menuList.png' : '../../assets/clea.png'" @click="openMenu()" class="menuList"  />
+                <img :src="!menu ? '../../assets/menuList.png' : '../../assets/clea.png'" @click="openMenu()"
+                    class="menuList" />
                 <p class="text logo" @click="linktomane()"> Earphone</p>
             </div>
-            <div class="text place">F.A.Q</div>
+            <div class="rightSide">
+                <router-link :to="{ name: 'Basket' }"  class="basket">
+                    <img src="../../assets/baseline_shopping.png" />
+                    <span>{{ count }}</span>
+                </router-link>
+                <div class="text place">F.A.Q</div>
+            </div>
+
         </div>
         <div class="line"></div>
         <MenuList @closeMenu="closeMenu" v-if="menu"></MenuList>
@@ -21,11 +29,12 @@ export default {
 
     components: {
         MenuList
-    },  
+    },
 
     data() {
         return {
-            menu: false
+            menu: false,
+            count: null
         }
     },
 
@@ -55,7 +64,7 @@ export default {
 }
 
 .menuList2 {
-    display:flex;
+    display: flex;
     justify-content: flex-start;
 }
 
@@ -65,7 +74,18 @@ export default {
     display: none;
 }
 
+.rightSide {
+    display: flex;
+    align-items: center;
+}
 
+.place {
+    margin-left: 10px;
+}
+
+.basket {
+    cursor: pointer;
+}
 
 .text {
     text-decoration: none;

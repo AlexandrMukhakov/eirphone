@@ -1,13 +1,16 @@
 <template>
-  <div class="card col-lg-9 col-12" v-if="cards">
-    <div class="container">
-      <img class="image" :src="cards.img"/>
+  <div class="productInfo col-lg-9 col-12">
+    <div class="card" v-if="cards">
+      <div class="container">
+        <img class="image" :src="cards.img" />
+      </div>
+      <div class="allDesc">
+        <div class="title"> {{ cards.title }}</div>
+        <div class="description">{{ cards.description }}</div>
+        <div class="price">{{ cards.price }}</div>
+      </div>
     </div>
-    <div class="allDesc">
-      <div class="title"> {{ cards.title }}</div>
-      <div class="description">{{ cards.description }}</div>
-      <div class="price">{{ cards.price }}</div>
-    </div>
+    <button @click="addToBasket()" class="Add-basket col-3">Добавить в корзину</button>
   </div>
 </template>
 
@@ -20,18 +23,40 @@ import data from '../mocks/earphoneInfo';
 export default {
   name: 'ProdactInfo',
 
- 
+
 
   data() {
     return {
-      cards: null
+      cards: null,
+      product: []
     }
   },
+
 
   created() {
     const card = data.find(card => card.id == this.$route.params.id)
     if (card) {
       this.cards = card;
+    }
+  },
+
+  methods: {
+    addToBasket() {
+      let arr = []
+      if (localStorage.getItem('product'))
+          arr = JSON.parse(localStorage.getItem('product'))
+
+      let addRow = {
+        'name': this.cards.title,
+        'img': this.cards.img,
+        'description': this.cards.description,
+        'price': this.cards.price,
+        'id': this.cards.id
+      }
+
+      arr.push(addRow)
+
+      localStorage.setItem('product', JSON.stringify(arr))
     }
   }
 
@@ -41,12 +66,29 @@ export default {
 
 <style scoped>
 .card {
-  background-color: rgb(238, 238, 238);
   display: flex;
-  padding: 30px 0 50px;
-
 }
 
+.productInfo {
+  background-color: rgb(238, 238, 238);
+  display: flex;
+  flex-direction: column;
+  padding: 30px 0 50px;
+  height: 100vh;
+}
+
+.Add-basket {
+  padding: 10px 30px;
+    background: #4592FF;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    color: white;
+}
+
+.Add-basket:hover {
+  background-color: aquamarine;
+}
 
 
 .allDesc {
@@ -56,8 +98,8 @@ export default {
 }
 
 .image {
-  width: 400px;
-  height: 400px;
+  width: 300px;
+  height: 300px;
   margin-bottom: 10px;
 }
 

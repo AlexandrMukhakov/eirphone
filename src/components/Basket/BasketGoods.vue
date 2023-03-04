@@ -1,23 +1,54 @@
 <template>
-    <div class="list">
-        <div class="title mb-4">Товары в вашей корзине</div>
+    <div class="list col-lg-12 col-sm-6">
+        <div class="title mb-4 mt-4">Товары в вашей корзине</div>
+        <div class="goods-card" v-for="i in data" :key="i.id">
+                    <img width="150px" :src="i.img" alt="goods-1" class="goods-image">
+                    <div>
+                        <h3 class="goods-title">{{ i.name }}</h3>
+                        <span class="goods-price">{{ i.price }}р. </span>
+                        <button class="delBus">удалить</button>
+                    </div>
+                </div>
         </div>
   </template>
   
 
   <script>
 
-import products from '../mocks/earphoneInfo'
+
 
   export default {
     name: 'ProductList',
 
+    data() {
+        return {
+            data: null
+        }
+    },
+
+    created() {
+        this.data = JSON.parse(localStorage.getItem('product'))
+    },
+
+    methods: {
+        delGoods() {
+            
+        }
+    }
 
   }
   </script>
   
   
   <style scoped>
+
+  .delBus {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    cursor:pointer;
+    padding: 2px 15px 2px 15px;
+  }
     .list {
         background-color: rgb(238, 238, 238);
         height: auto;
@@ -36,22 +67,19 @@ import products from '../mocks/earphoneInfo'
     font-size: 30px;
     line-height: 20px;
     display: flex;
-    justify-content: flex-start;
 }
 
 .goods-card {
    position: relative;
    text-align: center;
    display:flex;
-   justify-content: center;
-   flex-direction: column;
-   align-items: center;
-   padding: 20px 35px 20px 75px;
+   padding: 10px 20px 10px 20px;
+
    width: 276px;
    box-shadow: 1px 1px 1px 2px rgba(0.2, 0.2, 0.2, 0.2);
    margin-right: 15px;
    margin-top: 15px;
-   background-color: white;
+   background-color: rgb(255, 255, 255);
    z-index: 0;
 }
 
@@ -76,21 +104,6 @@ import products from '../mocks/earphoneInfo'
     color: #262D33;
 }
 
-.cards-links {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top:0px;
-    left:0px;
-    color:white;
-    opacity: 0;
-    background-color: rgba(0, 0, 0, 0.6);
-    z-index: 3;
-}
-
-.cards-links:hover {
-    opacity: 1;
-}
 .about {
     display: flex;
     justify-content: center;
