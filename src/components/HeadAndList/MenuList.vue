@@ -90,6 +90,8 @@
     padding: 20px;
     color: #333333;
     position: relative;
+    border-top-right-radius: 100px;
+    border-bottom-right-radius: 100px;
   }
   
 

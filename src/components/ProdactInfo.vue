@@ -78,7 +78,7 @@ export default {
   display: flex;
   flex-direction: column;
   padding: 30px 0 50px;
-  height: 100vh;
+ 
 }
 
 .Add-basket {
@@ -138,6 +138,13 @@ export default {
 @media(max-width:769px) {
   .card {
     display: block;
+  }
+  .image {
+    display: flex;
+    justify-content: center;
+  }
+  .Add-basket {
+    margin: 0 auto;
   }
 
   img {

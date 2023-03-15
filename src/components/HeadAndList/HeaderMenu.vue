@@ -2,14 +2,14 @@
     <div class="list">
         <div class="d-flex justify-content-between align-items-center">
             <div class="menuList2">
-                <img :src="!menu ? '../../assets/menuList.png' : '../../assets/clea.png'" @click="openMenu()"
+                <img src="../../assets/menuList.png" @click="openMenu()"
                     class="menuList" />
                 <p class="text logo" @click="linktomane()"> Earphone</p>
             </div>
             <div class="rightSide">
                 <router-link :to="{ name: 'Basket' }"  class="basket">
                     <img src="../../assets/baseline_shopping.png" />
-                    <span>{{ count }}</span>
+                    <span v-if="signal">{{ data.length }}</span>
                 </router-link>
                 <div class="text place">F.A.Q</div>
             </div>
@@ -34,9 +34,13 @@ export default {
     data() {
         return {
             menu: false,
-            count: null
+            signal: false,
+            data: null
         }
     },
+
+   
+
 
     methods: {
         linktomane() {
@@ -87,6 +91,15 @@ export default {
     cursor: pointer;
 }
 
+span {
+    position: absolute;
+    top:10px;
+    right: 55px;
+    color:white;
+    background-color: rgb(230, 68, 68);
+    padding: 0px 5px;
+    border-radius: 100px;
+}
 .text {
     text-decoration: none;
     color: #939699;
@@ -113,6 +126,7 @@ export default {
         display: block;
         margin-right: 15px;
         cursor: pointer;
+        padding: 5px 10px;
     }
 
     .menuList2 {

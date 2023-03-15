@@ -45,10 +45,8 @@ export default {
         },
 
         delGoods(card) {
-            let data2 = JSON.parse(localStorage.getItem('product'));
-            data2 = data2.filter(t => t != card)
-            localStorage.setItem('product', JSON.parse(data2))
-            this.data = data2
+            this.data = this.data.filter(t => t != card)
+            localStorage.setItem('product', JSON.stringify(this.data))
         }
     }
 
@@ -65,9 +63,9 @@ export default {
     padding: 2px 15px 2px 15px;
 }
 
+
 .list {
     background-color: rgb(238, 238, 238);
-    height: auto;
 }
 
 .list1 {
@@ -133,6 +131,7 @@ export default {
     font-size: 20px;
     font-weight: 400;
 }
+
 
 @media(max-width:990px) {
     .list1 {
