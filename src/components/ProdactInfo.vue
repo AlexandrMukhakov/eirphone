@@ -4,6 +4,8 @@
       <div class="container">
         <img class="image" :src="cards.img" />
       </div>
+      <span v-if="popup" class="popuptext" id="myPopup">Товар успешно добавлен в корзину</span>
+      <span v-if="sub" class="popuptext" id="myPopup">Данный товар уже есть в корзине</span>
       <div class="allDesc">
         <div class="title"> {{ cards.title }}</div>
         <div class="description">{{ cards.description }}</div>
@@ -28,10 +30,16 @@ export default {
   data() {
     return {
       cards: null,
-      product: []
+      product: [],
+      popup: false,
+      sub: false
     }
   },
 
+  watch: {
+    popup: 'closeModal',
+    sub: 'closeModal2'
+  },  
 
   created() {
     const card = data.find(card => card.id == this.$route.params.id)
@@ -55,12 +63,29 @@ export default {
       }
 
       if(arr.some(t => t.id === addRow.id)) {
-        alert('Данный товар уже есть в корзине');
+        this.sub = true
       } else {
         arr.push(addRow)
         localStorage.setItem('product', JSON.stringify(arr))
+        this.popup = true
       }
 
+    },
+
+    closeModal() {
+      if (this.popup) {
+        setTimeout(() => {
+          this.popup = false
+        }, 2000)
+      }
+    },
+    
+    closeModal2() {
+      if (this.sub) {
+        setTimeout(() => {
+          this.sub = false
+        }, 2000)
+      }
     }
   }
 
@@ -135,7 +160,44 @@ export default {
   text-align: center;
 }
 
+ .popuptext {
+    animation: opac 0.5s;
+    width: 160px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 30px 80px;
+    position: absolute;
+    top:245px;
+    right: 530px;
+    z-index: 6;
+    text-decoration: none;
+    font-family: 'Lato', sans-serif;
+    font-style: normal;
+    font-size: 20px;
+}
+
+
+
+
+@keyframes opac {
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }
+
 @media(max-width:769px) {
+  .popuptext {
+    position: absolute;
+    top:350px;
+    right: 130px;
+    z-index: 6;
+}
   .card {
     display: block;
   }

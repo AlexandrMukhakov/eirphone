@@ -1,6 +1,7 @@
 <template>
-    <div class="list col-lg-9 col-sm-6">
+    <div class="list col-lg-9 col-sm-6 pb-4">
         <div class="title mb-4 mt-4">Товары в вашей корзине</div>
+        <p v-if="empty" class="emptyBas">В данный момент в корзине пусто</p>
         <div class="goods-card" v-for="i in data" :key="i.id">
             <img width="150px" :src="i.img" alt="goods-1" class="goods-image">
             <div>
@@ -28,12 +29,17 @@ export default {
     data() {
         return {
             data: null,
-            count: 1
+            count: 1,
+            empty: true
         }
     },
 
     created() {
         this.data = JSON.parse(localStorage.getItem('product'))
+    },
+
+    watch: {
+        data: 'emptyFunc'
     },
 
     methods: {
@@ -47,6 +53,14 @@ export default {
         delGoods(card) {
             this.data = this.data.filter(t => t != card)
             localStorage.setItem('product', JSON.stringify(this.data))
+        },
+
+        emptyFunc() {
+            if (this.data) {
+                this.empty = false
+            } else {
+                this.empty = true
+            }
         }
     }
 
@@ -130,6 +144,13 @@ export default {
     align-items: center;
     font-size: 20px;
     font-weight: 400;
+}
+
+.emptyBas {
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    text-align: center;
 }
 
 
