@@ -12,7 +12,7 @@
         <div class="price">{{ cards.price }}</div>
       </div>
     </div>
-    <button @click="addToBasket()" class="Add-basket col-3">Добавить в корзину</button>
+   <button @click="addToBasket()" class="Add-basket col-3">Добавить в корзину</button>
   </div>
 </template>
 
@@ -113,6 +113,7 @@ export default {
     border: none;
     cursor: pointer;
     color: white;
+    margin-bottom: 30px;
 }
 
 .Add-basket:hover {
@@ -213,4 +214,23 @@ export default {
     margin: 0 auto;
   }
 }
+
+@media(max-width:520px) {
+  .popuptext {
+    position: absolute;
+    top:585px;
+    right: 85px;
+}
+}
+
+@media(max-width:425px) {
+  .popuptext {
+    position: absolute;
+    top:585px;
+    right: 45px;
+}
+
+}
+
+
 </style>

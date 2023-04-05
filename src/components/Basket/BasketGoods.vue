@@ -1,7 +1,6 @@
 <template>
     <div class="list col-lg-9 col-sm-6 pb-4">
         <div class="title mb-4 mt-4">Товары в вашей корзине</div>
-        <p v-if="empty" class="emptyBas">В данный момент в корзине пусто</p>
         <div class="goods-card" v-for="i in data" :key="i.id">
             <img width="150px" :src="i.img" alt="goods-1" class="goods-image">
             <div>
@@ -15,6 +14,7 @@
                 <button @click="delGoods(i)" class="delBus">удалить</button>
             </div>
         </div>
+        <p v-show="empty" class="emptyBas">В данный момент в корзине пусто</p>
     </div>
 </template>
   
@@ -30,7 +30,7 @@ export default {
         return {
             data: null,
             count: 1,
-            empty: true
+            empty: false
         }
     },
 
@@ -39,7 +39,7 @@ export default {
     },
 
     watch: {
-        data: 'emptyFunc'
+        data: 'qwerty'
     },
 
     methods: {
@@ -56,12 +56,14 @@ export default {
         },
 
         emptyFunc() {
-            if (this.data) {
+            if (this.data.length) {
                 this.empty = false
             } else {
                 this.empty = true
             }
-        }
+        },
+
+
     }
 
 }
@@ -80,11 +82,13 @@ export default {
 
 .list {
     background-color: rgb(238, 238, 238);
+    min-height: 100vh;
 }
 
 .list1 {
     display: flex;
     flex-wrap: wrap;
+    
 }
 
 .count {
@@ -92,6 +96,7 @@ export default {
     align-items: center;
     justify-content: center;
 }
+
 .title {
     font-family: 'Lato', sans-serif;
     font-style: normal;
